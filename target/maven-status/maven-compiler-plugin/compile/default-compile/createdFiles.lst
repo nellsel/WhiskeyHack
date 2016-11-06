@@ -1,0 +1,5 @@
+com\whiskey\rest\HibernateUtil.class
+com\whiskey\rest\CaskHistory.class
+com\whiskey\rest\WhiskeyCoinService.class
+com\whiskey\rest\Cask.class
+com\whiskey\rest\Distillery.class

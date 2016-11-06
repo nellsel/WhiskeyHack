@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.whiskey.rest.Distillery" table="Distillery" catalog="mydb">
+		<id name="DistilleryId" type="java.lang.Integer">
+			<column name="DistilleryId" />
+			<generator class="identity" />
+		</id>
+		<property name="DistilleryName" column="DistilleryName" type="string" />
+	</class>
+</hibernate-mapping>
