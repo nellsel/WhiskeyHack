@@ -34,7 +34,8 @@ public class WhiskeyCoinService {
 			String json = new Gson().toJson(stlist);
 
 			return Response.status(200)
-					.header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Origin", "http://localhost:3000")
+					.header("Access-Control-Allow-Credentials", "true")
 					.entity(json)
 					.build();
 		} catch (HibernateException e) {

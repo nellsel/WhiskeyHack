@@ -34,7 +34,8 @@ public class DistilleryService {
 
 			//String result = "@Produces(\"application/json\") Output: \n\nF to C Converter Output: \n\n" + jsonObject;
 			return Response.status(200)
-					.header("Access-Control-Allow-Origin", "*")
+					.header("Access-Control-Allow-Origin", "http://localhost:3000")
+					.header("Access-Control-Allow-Credentials", "true")
 					.entity(json)
 					.build();
 		} catch (HibernateException e) {

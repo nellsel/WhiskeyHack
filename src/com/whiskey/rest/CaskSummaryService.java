@@ -43,20 +43,30 @@ public class CaskSummaryService {
 			}
 			List<CaskSummary> caskSummaryList = new ArrayList<CaskSummary>();
 			for (Integer caskId : hashMap.keySet()) {
-				List<String> alcoholTypes = hashMap.get(caskId);
+				Object[] alcoholTypes = hashMap.get(caskId).toArray();
 				CaskSummary summary = new CaskSummary();
 				summary.CaskId = caskId;
 				summary.History = "";
-				for (String alcholType : alcoholTypes) {
+				for (int i=0 ; i< alcoholTypes.length; i++) {
 
-					summary.History += alcholType + ", ";
+					
+					if (i< alcoholTypes.length -1) {
+						summary.History += alcoholTypes[i] + ", ";
+					}
+					else
+					{
+						summary.History += alcoholTypes[i];
+					}
 				}
 				caskSummaryList.add(summary);
 			}
 
 			String json = new Gson().toJson(caskSummaryList);
 
-			return Response.status(200).header("Access-Control-Allow-Origin", "*").entity(json).build();
+			return Response.status(200)
+					.header("Access-Control-Allow-Origin", "http://localhost:3000")
+					.header("Access-Control-Allow-Credentials", "true")
+					.entity(json).build();
 		} catch (HibernateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
